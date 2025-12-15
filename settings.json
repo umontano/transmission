@@ -1,0 +1,10 @@
+{
+  "download-dir": "/var/lib/transmission/downloads",
+  "incomplete-dir": "/var/lib/transmission/incomplete",
+  "incomplete-dir-enabled": true,
+  "rpc-authentication-required": true,
+  "rpc-username": "vv",
+  "rpc-password": "v",
+  "rpc-whitelist-enabled": false,
+  "umask": 2
+}
