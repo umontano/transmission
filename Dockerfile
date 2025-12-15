@@ -3,7 +3,9 @@ FROM alpine:latest
 RUN apk add --no-cache transmission-cli
 RUN apk add --no-cache transmission-daemon
 
-RUN mkdir -p /var/lib/transmission/{downloads,incomplete,config} && \
+RUN mkdir -p /var/lib/transmission/downloads && \
+	mkdir -p /var/lib/transmission/incomplete && \
+	mkdir -p /var/lib/transmission/config && \
     adduser -D -h /var/lib/transmission transmission && \
     chown -R transmission:transmission /var/lib/transmission
 

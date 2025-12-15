@@ -3,7 +3,7 @@
   "incomplete-dir": "/var/lib/transmission/incomplete",
   "incomplete-dir-enabled": true,
   "rpc-authentication-required": true,
-  "rpc-username": "vv",
+  "rpc-username": "transmission",
   "rpc-password": "v",
   "rpc-whitelist-enabled": false,
   "umask": 2
