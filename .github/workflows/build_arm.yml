@@ -3,7 +3,7 @@ name: Build and Push ARM/v7 Transmission Image
 on:
   push:
     paths:
-      - 'action.txt'
+      - 'act.txt'
     branches:
       - main
 
@@ -34,6 +34,7 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/arm/v7
+          tags: |
+            umontano/transmission:latest
+            ghcr.io/transmission:latest
           push: true
-          tags: umontano/transmission:latest
-

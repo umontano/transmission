@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk update && \
-	apk add --no-cache transmission-cli transmission-daemon transmission-extra transmission-remote && \
+	apk add --no-cache transmission-cli transmission-daemon transmission-extra transmission-remote   yt-dlp ffmpeg  && \
 	apk del --purge && \
 	rm -rf /var/cache/apk/* && \
 	mkdir -p /var/lib/transmission/downloads && \
