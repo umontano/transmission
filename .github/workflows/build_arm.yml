@@ -14,8 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-
-
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
@@ -27,3 +25,22 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.PAT }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and Push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/arm/v7
+          tags: |
+            umontano/transmission:latest
+            ghcr.io/transmission:latest
+          push: true
