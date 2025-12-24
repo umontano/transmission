@@ -14,34 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: arm
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: umontano
-          password: ${{ secrets.PAT }}
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
           username: umontano
           password: ${{ secrets.DOCK }}
-
-      - name: Build and Push
-        uses: docker/build-push-action@v6
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
         with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/arm/v7
-          tags: |
-            umontano/transmission:latest
-            ghcr.io/transmission:latest
-          push: true
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT }}
