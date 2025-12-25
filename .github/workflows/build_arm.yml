@@ -42,4 +42,5 @@ jobs:
           platforms: linux/arm/v7
           tags: |
             umontano/transmission:latest
+            ghcr.io/umontano/transmission:latest
           push: true
